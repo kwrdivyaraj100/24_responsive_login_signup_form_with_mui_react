@@ -3,6 +3,17 @@ import { Box, Button, TextField, Typography } from '@mui/material'
 
 function Auth() {
     const [isSignup, setIsSignup] = useState(false);
+    const [inputs, setInputs] = useState({
+        name: "",
+        email: "",
+        password: "",
+    });
+    const handleChange = (e) => {
+        setInputs((prevState) => ({
+            ...prevState,
+            [e.target.name]: e.target.value
+        }))
+    }
     console.log(isSignup);
     return (
         <div>
@@ -13,10 +24,10 @@ function Auth() {
                     }
                 }}>
                     <Typography variant='h2' padding={3} textAlign="center">{isSignup ? "Signup" : "Login"}</Typography>
-                    {isSignup && (<TextField margin='normal' type={'text'} variant='outlined' placeholder='Name' />
+                    {isSignup && (<TextField onChange={handleChange} name="name" value={inputs.name} margin='normal' type={'text'} variant='outlined' placeholder='Name' />
                     )}
-                    <TextField margin='normal' type={'email'} variant='outlined' placeholder='Email' />
-                    <TextField margin='normal' type={'password'} variant='outlined' placeholder='Password' />
+                    <TextField onChange={handleChange} name="email" value={inputs.email} margin='normal' type={'email'} variant='outlined' placeholder='Email' />
+                    <TextField onChange={handleChange} name="password" value={inputs.password} margin='normal' type={'password'} variant='outlined' placeholder='Password' />
                     <Button sx={{ marginTop: 3, borderRadius: 3 }} variant='contained' color='warning'>Login</Button>
                     <Button onClick={() => setIsSignup(!isSignup)} sx={{ marginTop: 3, borderRadius: 3 }} >Change to {isSignup ? "Login" : "signup"}</Button>
 
