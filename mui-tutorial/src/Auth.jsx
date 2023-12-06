@@ -10,11 +10,11 @@ function Auth() {
                         boxShadow: '10px 10px 20px #ccc',
                     }
                 }}>
-                    <Typography>Login</Typography>
-                    <TextField />
-                    <TextField />
-                    <TextField />
-                    <Button>Login</Button>
+                    <Typography variant='h2' padding={3} textAlign="center">Login</Typography>
+                    <TextField margin='normal' type={'text'} variant='outlined' placeholder='Name' />
+                    <TextField margin='normal' type={'email'}  variant='outlined' placeholder='Email' />
+                    <TextField margin='normal' type={'password'} variant='outlined' placeholder='Password' />
+                    <Button sx={{marginTop: 3, borderRadius: 3 }} variant='contained' color='warning'>Login</Button>
 
                 </Box>
             </form>
